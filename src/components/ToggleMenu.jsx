@@ -1,15 +1,18 @@
-import styled from '@emotion/styled';
 import React from 'react';
+import { slide as Menu } from "react-burger-menu";
+import styled from '@emotion/styled';
 
 
-export const ToggleMenu = ({ open, id }) => {
+export const ToggleMenu = () => {
   return (
-    <nav id={id} aria-hidden={!open}>
+    <Menu>
       <ul>
         <li>about</li>
         <li>works</li>
         <li>contact</li>
       </ul>
-    </nav>
+    </Menu>
   );
 };
+
+export default ToggleMenu

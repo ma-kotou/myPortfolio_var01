@@ -1,30 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+import { val } from './variable.js'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import { val } from '../components/variable.js';
 
-  const links= ['works','skill','history'];
+const AnimationLink = ({props}) => {
+  <Item>
+    <AniLink paintDrip hex="#FF6C9C" component={props.link} to={`/${props.link}`}>{props.link}</AniLink>
+  </Item>
+}
 
-  const Navigation = () =>{
-    return (
-          <Nav>
-            {links.map((links)=>{
-                return(
-                  <Item>
-                    <AniLink paintDrip hex="#FF6C9C" component={Link} to={`/${links}`}>{links}</AniLink>
-                  </Item>
-                  )
-            })}
-          </Nav>
-    );
-  };
-
-const Nav = styled.ul`
-  box-sizing: border-box;
-  margin-bottom: 32px 0 152px;
-  text-align: right;
-`
 const Item = styled.li`
   font-size: ${val.s24};
   list-style: none;
@@ -53,5 +38,4 @@ const Item = styled.li`
   }
 `
 
-
-export default Navigation;
+export default AnimationLink

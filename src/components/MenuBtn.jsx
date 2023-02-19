@@ -1,40 +1,25 @@
 import React from 'react'
-import styled from '@emotion/styled';
 import { val } from '../components/variable.js';
+import { slide as Menu } from "react-burger-menu";
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from 'gatsby'
+import AnimationLink from './AnimationLink'
 
-const MenuBtn = () => {
 
+const MenuBtn = (props) => {
   return(
-    <Button>
-      <Border />
-      <Border />
-      <Border />
-    </Button>
+    <Menu width={600}>
+      <ul>
+        <AnimationLink link="work"/>
+        <li>
+          <AniLink paintDrip hex="#FF6C9C" component={Link} to="/skill">skill</AniLink>
+        </li>
+        <li>
+          <AniLink paintDrip hex="#FF6C9C" component={Link} to="/history">history</AniLink>
+        </li>
+      </ul>
+    </Menu>
   )
 }
 
-const Button = styled.button`
-  width: 100px;
-  height: 100px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  background: ${val.black};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-  border: none;
-`
-
-const Border = styled.span`
-  display: block;
-  width: 40px;
-  height: 1px;
-  background-color: #fff;
-  margin-bottom: 10px;
-  &:last-of-type{
-    margin-bottom: 0;
-  }
-`
 export default MenuBtn

@@ -11,7 +11,12 @@ const Mv = () => {
   <link rel="stylesheet" href="https://use.typekit.net/zvp3usw.css"></link>
 
 return (
-    <MainView>
+    <MainView
+      initial={{opacity:0}}
+      animate={{opacity:1}}
+      transition={{
+      opacity: { ease: "linear",duration: 1}
+      }}>
       <Number/>
       <Switch>
         <LeftButton>
@@ -26,6 +31,10 @@ return (
         <TextArea>
           <Line />
           <H2>Thank you for visit!</H2>
+          <p>インハウスデザイナー,
+            クライアントワークどちらも経験してきました。
+            ディレクション・デザイン・フロントエンドとマルチプレーヤーとして関わって参りました。
+          </p>
           <SubNavigation>
             <Item>Direction</Item>
             <Item>Design</Item>
@@ -39,8 +48,8 @@ return (
   )
 }
 
-const MainView = styled.section`
-  width: calc(100% - 180px);
+const MainView = styled(motion.section)`
+  width: calc(100% - 200px);
   height: calc(100vw - 34px);
   position: relative;
   margin: 0 auto;

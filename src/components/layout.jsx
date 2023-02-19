@@ -5,7 +5,6 @@ import { Global, css } from '@emotion/react'
 import { val } from './variable.js';
 import Sidebar from './Sidebar';
 import MenuBtn from './MenuBtn';
-import ToggleMenu from './ToggleMenu';
 
 
 const Layout = ({ children }) => {
@@ -15,12 +14,7 @@ const Layout = ({ children }) => {
       <Global styles={styles} />
         <main>
           <Sidebar />
-          <MenuBtn
-            open={open}
-            controls="navigation"
-            label="メニューを開きます"
-            onClick={toggleFunction}/>
-            <ToggleMenu id="navigation" open={open} />
+          <MenuBtn/>
           {children}
         </main>
         <Footer />
@@ -92,6 +86,68 @@ const styles = css`
   .center{
     text-align: center;
     margin: 0 auto;
+  }
+  /* hamburgerMenu */
+  .bm-burger-button{
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: ${val.black};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    border: none;
+    span{
+      width: 32px;
+      height: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .bm-burger-bars{
+        display: block;
+        position: initial!important;
+        width: 100%;
+        height: 1px!important;
+        background : #fff;
+        margin-bottom: 10px;
+        &:last-of-type{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #fff;
+  }
+
+  /* Color/shape of burger icon bars on hover*/
+  .bm-burger-bars-hover {
+    background: pink;
+  }
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  /* burgerMenu */
+  .bm-menu{
+    background: ${val.white};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bm-item-list{
+    max-width: 960px;
+    margin: 200px auto 0;
+  }
+  .bm-item li{
+    font-size: ${val.s24};
+    margin-bottom: ${val.s32};
   }
 `
 
