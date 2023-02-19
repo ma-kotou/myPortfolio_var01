@@ -3,6 +3,8 @@ export const val = {
   pink: '#FF6C9C',
   black: '#33272a',
   blackRGBA: 'rgba(0,0,0,.2)',
+  lightGray: '#ddd',
+  darkGray: '#6A6669',
   white: '#f4f4f4',
   yellow: '#FFD561',
   blue: '#03AFFA',

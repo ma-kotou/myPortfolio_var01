@@ -1,20 +1,29 @@
-import React from 'react'
-import Header from './header'
+import React, {useState} from 'react'
 import Footer from './footer'
-import sanitize from 'sanitize.css'
+import { sanitize } from 'sanitize.css'
 import { Global, css } from '@emotion/react'
 import { val } from './variable.js';
+import Sidebar from './Sidebar';
+import MenuBtn from './MenuBtn';
+import ToggleMenu from './ToggleMenu';
 
 
 const Layout = ({ children }) => {
+
   return (
     <>
       <Global styles={styles} />
-      <Header />
         <main>
-        {children}
+          <Sidebar />
+          <MenuBtn
+            open={open}
+            controls="navigation"
+            label="メニューを開きます"
+            onClick={toggleFunction}/>
+            <ToggleMenu id="navigation" open={open} />
+          {children}
         </main>
-      <Footer />
+        <Footer />
     </>
   );
 };
@@ -27,13 +36,11 @@ const styles = css`
   body {
   color: ${val.black};
   letter-spacing: .05em;
+  box-sizing: border-box;
+  font-family: gill-sans-nova, sans-serif;
   }
   main{
     background: ${val.white};
-    padding: ${ val.s48} 0 ${val.s120};
-    animation: fadeIn 0.5s ease 0s 1 normal;
-    -webkit-animation: fadeIn 0.5s ease 0s 1 normal;
-    transition: 5s;
   }
 
   a {

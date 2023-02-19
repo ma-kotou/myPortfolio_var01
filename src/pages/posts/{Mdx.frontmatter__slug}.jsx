@@ -29,6 +29,7 @@ const BlogPostTemplate = ({ data, children }) => {
 
   return (
     <Layout>
+      <Div>
         <HeroImage initial={true} animate={{scale: 1}} transition={{ duration: 1 }}>
           <Link to={data.mdx.frontmatter.url} target="_blank" rel="noopener noreferrer">
           <GatsbyImage image={image} alt="Hero Image" width="1080"/>
@@ -37,7 +38,7 @@ const BlogPostTemplate = ({ data, children }) => {
         <Section>
           <H2
             layout initial={{width:"0", opacity:0}}
-            animate={{width: "100%", opacity:1}}
+            animate={{width: "auto", opacity:1}}
             transition={{
               opacity: { ease: "linear",duration: 3},
               layout: {ease: "linear"},duration: 5
@@ -59,7 +60,7 @@ const BlogPostTemplate = ({ data, children }) => {
           </MetaBlocks>
           <Text
             layout initial={{width:"0", opacity:0, whiteSpace:"nowrap", height:"2rem",}}
-            animate={{width: "100%", opacity:1, whiteSpace:"normal", height: "auto"}}
+            animate={{width: "auto", opacity:1, whiteSpace:"normal", height: "auto"}}
             transition={{
               opacity: { ease: "linear",duration: 3},
               layout: {ease: "linear"},duration: 5
@@ -133,13 +134,17 @@ const BlogPostTemplate = ({ data, children }) => {
             <BiArrowToTop onClick={returnTop}/>
           </IconContext.Provider>
         </ScrollTop>
+      </Div>
     </Layout>
   );
   }
-
+const Div = styled.section`
+  width: calc(100% - 80px);
+`
 const HeroImage = styled(motion.section)`
       max-width: 1080px;
       margin: ${val.s120} auto;
+      height: fit-content;
       box-shadow: ${val.shadow};
       transform: scale(0.5);
       transition: 2s;

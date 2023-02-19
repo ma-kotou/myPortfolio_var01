@@ -1,19 +1,15 @@
 import React from 'react'
-import Layout from '../components/layout'
-import Mv from '../components/mv'
-import Website from "../components/website"
-import AppArchive from "../components/appArchive"
+import Layout from '../components/Layout'
+import Mv from '../components/Mv'
 import Seo from "../components/seo"
-import ThisSite from '../components/thisSite'
+import ThisSite from '../components/ThisSite'
+import Container from '../components/Container';
 
-const homePage = () => {
+const homePage = (props) => {
 
   return (
         <Layout>
           <Mv/>
-          <ThisSite/>
-          <Website/>
-          <AppArchive/>
         </Layout>
     );
 };

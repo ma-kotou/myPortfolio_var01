@@ -1,38 +1,98 @@
 import React from 'react'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { val } from './variable.js'
 import { motion } from "framer-motion"
-import video from "./../images/popVideo.mp4"
+import Navigation from "./Navigation"
+import { StaticImage } from 'gatsby-plugin-image'
+import Number from "./Numbar"
 
 const Mv = () => {
+  <link rel="stylesheet" href="https://use.typekit.net/zvp3usw.css"></link>
+
 return (
     <MainView>
-      <video autoPlay loop muted playsInline style={{ width:"100%" }}>
-        <source src={video} type="video/mp4"/>
-      </video>
-      <TextArea>
-          <H2 initial={{opacity: 0}} animate ={{ opacity: 1, y: [50, 0] }} transition={{ duration: 1 }}>Design/Coding/Program</H2>
-          <H2 initial={{opacity: 0}} animate ={{ opacity: 1, y: [50, 0] }} transition={{ duration: 2 }}>ディレクション・進行管理まで</H2>
-          <H2 initial={{opacity: 0}} animate ={{ opacity: 1, y: [50, 0] }} transition={{ duration: 3 }}>全てお任せ下さい。</H2>
-      </TextArea>
+      <Number/>
+      <Switch>
+        <LeftButton>
+          <StaticImage src="../images/arrow.png" />
+        </LeftButton>
+        <RightButton>
+          <StaticImage src="../images/arrow.png" />
+        </RightButton>
+      </Switch>
+      <TextBox>
+        <Navigation/>
+        <TextArea>
+          <Line />
+          <H2>Thank you for visit!</H2>
+          <SubNavigation>
+            <Item>Direction</Item>
+            <Item>Design</Item>
+            <Item>Develop</Item>
+          </SubNavigation>
+        </TextArea>
+      </TextBox>
+      <StaticImage
+        src="../images/mv01.jpg"/>
     </MainView>
   )
 }
 
-export default Mv
-
 const MainView = styled.section`
-  width: 100%;
-  min-height: 40vh;
+  width: calc(100% - 180px);
+  height: calc(100vw - 34px);
   position: relative;
-  margin-bottom: ${val.s160};
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  .gatsby-image-wrapper-constrained{
+    max-width: 50%;
+  }
+`
+
+const Switch = styled.div`
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate( -60%, -50% );
+  z-index: 10;
+`
+
+const LeftButton = styled.div`
+  width : 40px;
+  height : 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${val.darkGray};
+  img{
+    width: 60%;
+  }
+`
+const RightButton = styled.div`
+  width : 40px;
+  height : 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(180deg);
+  background: ${val.black};
+  img{
+    width: 60%;
+  }
+`
+const TextBox = styled.div`
+  width: 50%;
+`
+const Line = styled.span`
+  width: 50px;
+  height: 15px;
+  margin-bottom: 16px;
 `
 
 const TextArea = styled(motion.div)`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  max-height: 20rem;
+  white-space: nowrap;
   padding-left: 3rem;
   text-align: left;
   transition: 1s;
@@ -41,7 +101,14 @@ const TextArea = styled(motion.div)`
 
 const H2 = styled(motion.h2)`
   font-size: 3rem;
-  color: #fff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-  margin-bottom: .5rem;
+  margin-bottom: ${val.s120};
 `
+
+const SubNavigation = styled.ul`
+  font-size: ${val.s24};
+`
+
+const Item = styled.li`
+  list-style: dot;
+`
+export default Mv

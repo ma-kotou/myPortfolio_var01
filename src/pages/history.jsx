@@ -4,13 +4,15 @@ import Seo from "../components/seo"
 import { motion } from "framer-motion"
 import styled from '@emotion/styled';
 import { val } from '../components/variable.js';
-import LowerHeader from '../components/lowerHeader';
+import Title from "../components/Title"
+import Container from '../components/Container'
 
 const History = () => {
 
   return (
       <Layout>
-        <LowerHeader text="History"/>
+        <Container>
+        <Title text="History"/>
         <Section
           initial={{opacity:0}}
           animate={{opacity:1}}
@@ -100,6 +102,7 @@ const History = () => {
           </ListBlock>
         </Block>
         </Section>
+        </Container>
       </Layout>
   );
 };

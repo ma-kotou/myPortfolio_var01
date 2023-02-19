@@ -38,9 +38,9 @@ const Website = () => {
         }
       `)
   return (
-      <Section>
+      <>
         <Title text="WebSite"/>
-        <Container>
+        <Inner>
         {data.allMdx.edges.map((edge) => (
         <AniLink paintDrip hex="#FF6C9C" component={Link} to={`/posts/${edge.node.frontmatter.slug}`}>
           <Item id={edge.node.frontmatter.slug} initial={{opacity: 0,translateY: 100}} whileInView={{opacity: 1, translateY: 0}} transition={{ duration: 1 }}>
@@ -59,15 +59,12 @@ const Website = () => {
           </Item>
         </AniLink>
         ))}
-        </Container>
-      </Section>
+        </Inner>
+      </>
   );
 };
-const Section = styled.section`
-  margin-bottom: ${val.s120};
-`
 
-const Container = styled.section`
+const Inner = styled.section`
   max-width: 1080px;
   margin: 0 auto;
   display: flex;

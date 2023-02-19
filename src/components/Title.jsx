@@ -12,7 +12,8 @@ const Title = (props) => {
         transition={{
           opacity: { ease: "linear",duration: 3},
           layout: {ease: "linear"},duration: 5
-          }}>{props.text}</H2>
+          }}>{props.text}
+        </H2>
   )
 }
 

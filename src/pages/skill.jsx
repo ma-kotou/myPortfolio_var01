@@ -1,11 +1,12 @@
 import React from 'react'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import Seo from "../components/seo"
 import { motion } from "framer-motion"
 import styled from '@emotion/styled'
 import { val } from '../components/variable.js'
-import LowerHeader from '../components/lowerHeader'
+import Title from "../components/Title"
 import { StaticImage } from 'gatsby-plugin-image'
+import Container from '../components/Container'
 
 const Skill = () => {
   const frontendTexts = ([
@@ -23,7 +24,8 @@ const Skill = () => {
 
   return (
       <Layout>
-        <LowerHeader text="Skill"/>
+        <Container>
+        <Title text="Skill"/>
         <Section
           initial={{opacity:0}}
           animate={{opacity:1}}
@@ -34,7 +36,7 @@ const Skill = () => {
           <SubSection>
             <H3
               initial={{width:"0", opacity:0}}
-              whileInView={{width: "100%", opacity:1}}
+              whileInView={{width: "auto", opacity:1}}
               transition={{
                 opacity: { ease: "linear",duration: 3},
                 layout: {ease: "linear"},duration: 3
@@ -67,6 +69,7 @@ const Skill = () => {
               <StaticImage src="../images/node.png" width={160} />
               <StaticImage src="../images/npm.png" width={160} />
               <StaticImage src="../images/webpack.png" />
+              <StaticImage src="../images/docker.png" />
               <StaticImage src="../images/sass.jpg" />
             </ImageWrap>
             <p>※ BEM,FLOCSS,EJS,Emotionも出来ます。TS,pythonは勉強中です。</p>
@@ -74,7 +77,7 @@ const Skill = () => {
           <SubSection>
             <H3
               initial={{width:"0", opacity:0}}
-              whileInView={{width: "100%", opacity:1}}
+              whileInView={{width: "auto", opacity:1}}
               transition={{
                 opacity: { ease: "linear",duration: 3},
                 layout: {ease: "linear"},duration: 5
@@ -100,6 +103,7 @@ const Skill = () => {
             </ImageWrap>
           </SubSection>
         </Section>
+        </Container>
       </Layout>
   );
 };

@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env`,
+})
+
 const gatsbyRemarkImages = require('gatsby-remark-images');
 
 /**
@@ -5,6 +9,7 @@ const gatsbyRemarkImages = require('gatsby-remark-images');
  */
 module.exports = {
   pathPrefix: `/app`,
+
   siteMetadata: {
     title: `M.K`,
     description: `2020年から2023年までの制作実績サイトです。`,
@@ -18,6 +23,14 @@ module.exports = {
       options: {
         name: `src`,
         path: `${__dirname}/src/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        typekit: {
+          id: process.env.GATSBY_ADOBE_FONT_PROJECT_ID,
+        },
       },
     },
     `gatsby-plugin-transition-link`,
