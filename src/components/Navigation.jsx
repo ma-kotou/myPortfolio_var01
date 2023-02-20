@@ -12,7 +12,7 @@ import { val } from '../components/variable.js';
             {links.map((links)=>{
                 return(
                   <Item>
-                    <AniLink paintDrip hex="#FF6C9C" component={Link} to={`/${links}`}>{links}</AniLink>
+                    <AniLink paintDrip hex="#4FB2C0" component={Link} to={`/${links}`}>{links}</AniLink>
                   </Item>
                   )
             })}
@@ -22,7 +22,7 @@ import { val } from '../components/variable.js';
 
 const Nav = styled.ul`
   box-sizing: border-box;
-  margin-bottom: 32px 0 152px;
+  margin-bottom: 240px;
   text-align: right;
 `
 const Item = styled.li`
@@ -34,7 +34,7 @@ const Item = styled.li`
   a{
     transition: 1s;
   &:hover{
-    color: ${val.pink};
+    color: ${val.mint};
     }
   }
   &:after{
@@ -44,7 +44,7 @@ const Item = styled.li`
     left: 0;
     width: 100%;
     height: 3px;
-    background: ${val.pink};
+    background: ${val.mint};
     transform: scale(0,1);
     transition: transform 0.3s;
   }

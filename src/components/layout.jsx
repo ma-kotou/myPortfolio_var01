@@ -62,6 +62,9 @@ const styles = css`
     margin-left: 1rem;
     animation: advance 0.5 ease 0s 1 normal;
   }
+  button{
+    border: none;
+  }
 
   //blog style
   .block-list{
@@ -100,6 +103,7 @@ const styles = css`
     align-items: center;
     z-index: 99999;
     border: none;
+    transition: 1s;
     span{
       width: 32px;
       height: 40px;
@@ -120,6 +124,9 @@ const styles = css`
       }
     }
   }
+  .bm-burger-bars-hover{
+    background: ${val.mint};
+  }
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
     background: #fff;
@@ -127,7 +134,7 @@ const styles = css`
 
   /* Color/shape of burger icon bars on hover*/
   .bm-burger-bars-hover {
-    background: pink;
+    background: ${val.mint};
   }
   /* Position and sizing of clickable cross button */
   .bm-cross-button {

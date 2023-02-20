@@ -4,9 +4,9 @@ import styled from '@emotion/styled'
 import { val } from './variable.js'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-const AnimationLink = ({props}) => {
+const AnimationLink = (props) => {
   <Item>
-    <AniLink paintDrip hex="#FF6C9C" component={props.link} to={`/${props.link}`}>{props.link}</AniLink>
+    <AniLink paintDrip hex="#FF6C9C" component={Link} to="#">{props.link}</AniLink>
   </Item>
 }
 

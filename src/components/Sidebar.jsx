@@ -49,5 +49,9 @@ const H2 = styled.h2`
   writing-mode: vertical-lr;
   font-size: ${val.s16};
   padding-top: 16px;
+  transition: 1s;
+  &:hover{
+    color: ${val.mint};
+  }
 `
 export default Sidebar

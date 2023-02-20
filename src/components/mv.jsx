@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { val } from './variable.js'
@@ -6,9 +6,20 @@ import { motion } from "framer-motion"
 import Navigation from "./Navigation"
 import { StaticImage } from 'gatsby-plugin-image'
 import Number from "./Numbar"
+import {CounterResult} from "./CounterResult"
 
 const Mv = () => {
-  <link rel="stylesheet" href="https://use.typekit.net/zvp3usw.css"></link>
+
+const [countval, setCountVal] = useState(0);
+
+const CounterUp = ()=>{
+  setCounterVal(prevCount => prevCount + 1);
+}
+
+const CounterDown = () => {
+  setCountVal(prevCount =>
+    prevCount > 0 ? prevCount -1 : prevCount)
+}
 
 return (
     <MainView
@@ -18,30 +29,22 @@ return (
       opacity: { ease: "linear",duration: 1}
       }}>
       <Number/>
-      <Switch>
-        <LeftButton>
-          <StaticImage src="../images/arrow.png" />
-        </LeftButton>
-        <RightButton>
-          <StaticImage src="../images/arrow.png" />
-        </RightButton>
-      </Switch>
-      <TextBox>
+      <ContentWrap>
         <Navigation/>
+        <CounterResult/>
         <TextArea>
-          <Line />
           <H2>Thank you for visit!</H2>
-          <p>インハウスデザイナー,
-            クライアントワークどちらも経験してきました。
-            ディレクション・デザイン・フロントエンドとマルチプレーヤーとして関わって参りました。
-          </p>
-          <SubNavigation>
-            <Item>Direction</Item>
-            <Item>Design</Item>
-            <Item>Develop</Item>
-          </SubNavigation>
+          <Text>
+            前職にてインハウスデザインのUIの設計、デザイン、コーディングを行いつつ、外注クライアントとのweb制作のディレクション・デザイン・コーディング・フロントエンドまで一貫して携わってきました。
+          </Text>
+          <Text>
+            特にどの分野が好き！というわけでなくweb制作全般が好きで、自己満足でなくクライアントが表現したい事を上手に形にする、実現するという事に重きを置いてきました。
+          </Text>
+          <Text>
+            前職では一人で全て担う形が多かったのですが、勿論全て一人で実行はできても複数人での作業分担した方がスピードアップには繋がります。なので、他の方に回せる箇所は回しながら指示を行いつつ案件進行を行って参りました。
+          </Text>
         </TextArea>
-      </TextBox>
+      </ContentWrap>
       <StaticImage
         src="../images/mv01.jpg"/>
     </MainView>
@@ -68,44 +71,24 @@ const Switch = styled.div`
   z-index: 10;
 `
 
-const LeftButton = styled.div`
-  width : 40px;
-  height : 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: ${val.darkGray};
-  img{
-    width: 60%;
-  }
-`
-const RightButton = styled.div`
-  width : 40px;
-  height : 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: rotate(180deg);
-  background: ${val.black};
-  img{
-    width: 60%;
-  }
-`
-const TextBox = styled.div`
+const ContentWrap = styled.div`
   width: 50%;
-`
-const Line = styled.span`
-  width: 50px;
-  height: 15px;
-  margin-bottom: 16px;
 `
 
 const TextArea = styled(motion.div)`
   white-space: nowrap;
-  padding-left: 3rem;
+  padding: 0 24px;
   text-align: left;
   transition: 1s;
   overflow: hidden;
+`
+
+const Text = styled.p`
+  padding-right: 56px;
+  white-space: pre-line;
+  line-height: 2em;
+  font-size: ${val.s20};
+  margin-bottom: 56px;
 `
 
 const H2 = styled(motion.h2)`
@@ -113,11 +96,4 @@ const H2 = styled(motion.h2)`
   margin-bottom: ${val.s120};
 `
 
-const SubNavigation = styled.ul`
-  font-size: ${val.s24};
-`
-
-const Item = styled.li`
-  list-style: dot;
-`
 export default Mv

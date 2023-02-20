@@ -29,7 +29,6 @@ const BlogPostTemplate = ({ data, children }) => {
 
   return (
     <Layout>
-      <Div>
         <HeroImage initial={true} animate={{scale: 1}} transition={{ duration: 1 }}>
           <Link to={data.mdx.frontmatter.url} target="_blank" rel="noopener noreferrer">
           <GatsbyImage image={image} alt="Hero Image" width="1080"/>
@@ -134,7 +133,6 @@ const BlogPostTemplate = ({ data, children }) => {
             <BiArrowToTop onClick={returnTop}/>
           </IconContext.Provider>
         </ScrollTop>
-      </Div>
     </Layout>
   );
   }
@@ -143,11 +141,17 @@ const Div = styled.section`
 `
 const HeroImage = styled(motion.section)`
       max-width: 1080px;
-      margin: ${val.s120} auto;
+      margin: 0 auto;
+      padding: ${val.s120} 0 0;
       height: fit-content;
-      box-shadow: ${val.shadow};
       transform: scale(0.5);
       transition: 2s;
+      &:hover{
+        filter: brightness(0.3);
+      }
+      img{
+        box-shadow: ${val.shadow};
+      }
     `
 
 const H2 = styled(motion.h2)`
@@ -158,7 +162,7 @@ const H2 = styled(motion.h2)`
 
 const MetaBlocks = styled(motion.div)`
   margin: 0 auto;
-  padding: 0 16px 56px;
+  padding-bottom: 56px;
   display: flex;
   justify-content: space-between;
 `

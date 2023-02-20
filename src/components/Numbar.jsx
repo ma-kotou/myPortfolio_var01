@@ -2,10 +2,10 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { val } from './variable.js'
 
-const Number = () =>{
+const Number = (countval) =>{
   return(
       <NumberWrap>
-        <Current>01</Current>
+        <Current>{countval}</Current>
         <Pages>04</Pages>
       </NumberWrap>
   )
